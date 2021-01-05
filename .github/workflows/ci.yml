@@ -32,7 +32,7 @@ jobs:
           verify
         mkdir target/artifacts
         cp target/spring-security-drupal-password-encoder-* target/artifacts
-    - uses: actions/upload-artifact@v2.2.1
+    - uses: actions/upload-artifact@v2.2.2
       with:
         name: spring-security-drupal-password-encoder-${{ github.job }}-${{ github.sha }}
         path: target/artifacts

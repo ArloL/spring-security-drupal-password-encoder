@@ -28,6 +28,10 @@ public class DrupalPhpassHashedPasswordEncoderTest {
 				"$S$EVtYc19/LM2dsCUcHLe50dXY/z9vfI6hIAgezAl3PZhbwWPJ0xUK"));
 		assertFalse(encoder.matches("wrong password",
 				"$S$EVtYc19/LM2dsCUcHLe50dXY/z9vfI6hIAgezAl3PZhbwWPJ0xUK"));
+		assertTrue(encoder.matches("YXplcOBfVhe-aCDE",
+				"$S$EMToK6OMiG6dNTFfZCLtiRKsit3yUR/TAQTJckBWm/Cn7RPcffCl"));
+		assertFalse(encoder.matches("wrong password",
+				"$S$EMToK6OMiG6dNTFfZCLtiRKsit3yUR/TAQTJckBWm/Cn7RPcffCl"));
 	}
 
 	@Test

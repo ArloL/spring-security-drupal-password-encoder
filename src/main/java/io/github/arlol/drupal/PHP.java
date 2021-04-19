@@ -86,7 +86,11 @@ public abstract class PHP {
 
 	public static byte[] randomBytes(int length) {
 		byte[] result = new byte[length];
-		new SecureRandom().nextBytes(result);
+		try {
+			SecureRandom.getInstanceStrong().nextBytes(result);
+		} catch (NoSuchAlgorithmException e) {
+			throw new IllegalStateException(e);
+		}
 		return result;
 	}
 

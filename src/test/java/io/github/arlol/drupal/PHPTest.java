@@ -31,18 +31,25 @@ public class PHPTest {
 
 	@Test
 	public void testMd5Hash() throws Exception {
-		assertEquals("5d41402abc4b2a76b9719d911017c592",
-				bin2hex(hash("md5", "hello")));
+		assertEquals(
+				"5d41402abc4b2a76b9719d911017c592",
+				bin2hex(hash("md5", "hello"))
+		);
 	}
 
 	@Test
 	public void testSaltPasswordHash() throws Exception {
 		byte[] hash = PHP.hash(algo, salt + password);
-		assertTrue(Arrays.equals(TestFiles.readAllBytes("saltPasswordHash.bin"),
-				hash));
+		assertTrue(
+				Arrays.equals(
+						TestFiles.readAllBytes("saltPasswordHash.bin"),
+						hash
+				)
+		);
 		assertEquals(
 				"97211053c60e2417cf61bb36605d164ffe71d8c97ac37847ce2be462af71fd64a8d828b9187bfe117bf231059210215841b5ff844df90edecfc7d96d0a10fdc9",
-				bin2hex(hash));
+				bin2hex(hash)
+		);
 	}
 
 	@Test
@@ -57,27 +64,35 @@ public class PHPTest {
 		hash = hash(algo, hash);
 		assertEquals(
 				"d7037aa88ddff81c66f195f12b56ec1bd7de484d688c84d33dc073d107ec8e12fa329095b0d6cacfe1f95dbb4361ac29d5c274624e3bb555e10bfc92a91f1649",
-				bin2hex(hash));
+				bin2hex(hash)
+		);
 	}
 
 	@Test
 	public void testByteConcatHash() throws Exception {
 		byte[] hash = hash(algo, salt + password);
-		hash = hash(algo,
+		hash = hash(
+				algo,
 				ByteBuffer.allocate(hash.length + passwordBytes.length)
 						.put(hash)
 						.put(passwordBytes)
-						.array());
+						.array()
+		);
 		assertEquals(
 				"d7037aa88ddff81c66f195f12b56ec1bd7de484d688c84d33dc073d107ec8e12fa329095b0d6cacfe1f95dbb4361ac29d5c274624e3bb555e10bfc92a91f1649",
-				bin2hex(hash));
+				bin2hex(hash)
+		);
 		assertTrue(Arrays.equals(TestFiles.readAllBytes("number2.bin"), hash));
 	}
 
 	@Test
 	public void testHex2Bin() throws Exception {
-		assertTrue(Arrays.equals(TestFiles.readAllBytes("hex2bin-1891.bin"),
-				hex2bin("1891")));
+		assertTrue(
+				Arrays.equals(
+						TestFiles.readAllBytes("hex2bin-1891.bin"),
+						hex2bin("1891")
+				)
+		);
 	}
 
 	@Test

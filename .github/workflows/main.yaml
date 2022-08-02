@@ -68,12 +68,7 @@ jobs:
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        cache: 'maven'
     - name: Build with Maven
       run: |
         set -o xtrace
@@ -99,12 +94,7 @@ jobs:
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        cache: 'maven'
     - name: Build with Maven
       run: |
         set -o xtrace
@@ -130,12 +120,7 @@ jobs:
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: .m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        cache: 'maven'
     - name: Build with Maven
       run: |
         .\mvnw --batch-mode -Dsha1="$env:GITHUB_SHA" -Drevision="$env:REVISION" verify
@@ -213,12 +198,7 @@ jobs:
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
-    - name: Cache Maven packages
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        cache: 'maven'
     - name: Publish to GitHub Packages Apache Maven
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

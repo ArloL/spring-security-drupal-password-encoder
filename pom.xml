@@ -15,10 +15,10 @@
 	<version>${revision}</version>
 
 	<scm>
-		<connection>scm:git:https://github.com/ArloL/spring-security-drupal-password-encoder.git</connection>
-		<developerConnection>scm:git:https://github.com/ArloL/spring-security-drupal-password-encoder.git</developerConnection>
+		<connection>scm:git:https://github.com/ArloL/spring-security-drupal-password-encoder</connection>
+		<developerConnection>scm:git:https://github.com/ArloL/spring-security-drupal-password-encoder</developerConnection>
 		<tag>${sha1}</tag>
-		<url>https://github.com/ArloL/spring-security-drupal-password-encoder/</url>
+		<url>https://github.com/ArloL/spring-security-drupal-password-encoder</url>
 	</scm>
 
 	<licenses>
